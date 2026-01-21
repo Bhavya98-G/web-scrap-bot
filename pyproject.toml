@@ -1,0 +1,31 @@
+[project]
+name = "web-scrap-bot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+# Update these lines in your pyproject.toml
+dependencies = [
+    "beautifulsoup4>=4.12.0",
+    "faiss-cpu>=1.8.0",
+    "google-generativeai>=0.8.0",
+    "langchain>=0.3.0", # Corrected (Latest is 0.3.x)
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-google-genai>=2.0.0", # Corrected (Latest is 2.x.x)
+    "python-dotenv>=1.0.1",
+    "lxml>=5.0.0",
+    "numpy>=1.26.0",
+    "readability-lxml>=0.8.1",
+    "requests>=2.31.0",
+    "sentence-transformers>=3.0.0",
+    "streamlit>=1.35.0",
+    "langchain-huggingface>=1.2.0",
+    "transformers>=4.57.3",
+    "torch>=2.9.1",
+    "accelerate>=1.12.0",
+    "openai>=2.15.0",
+    "llama-index>=0.14.12",
+    "llama-index-embeddings-huggingface>=0.6.1",
+    "notebook>=7.5.2",
+]
