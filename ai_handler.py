@@ -2,16 +2,27 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
+import streamlit as st
 
-# 1. Load variables before initializing the LLM
+api_key = None
+
+# 1) Try Streamlit secrets
 try:
-    api_key = st.secrets['GOOGLE_API_KEY']
-except:
+    api_key = st.secrets["GOOGLE_API_KEY"]
+except KeyError:
+    pass
+
+# 2) Fallback to .env
+if not api_key:
     load_dotenv(find_dotenv())
     api_key = os.getenv("GOOGLE_API_KEY")
 
+# 3) Final validation
 if not api_key:
-    raise ValueError("GOOGLE_API_KEY not found. Please ensure it is set in your .env file.")
+    raise ValueError(
+        "GOOGLE_API_KEY not found. "
+        "Set it in Streamlit Secrets or in your .env file."
+    )
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-3-flash-preview",
