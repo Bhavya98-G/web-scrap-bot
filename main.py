@@ -364,7 +364,8 @@ if prompt := st.chat_input("💬 Ask a question about the website..."):
                     st.session_state.indexed_url,
                     st.session_state.title
                 )
-            
+            if not response:
+                response = "Sorry, I don't have enough information to answer that question."
             # Display response with typewriter effect
             typewriter_effect(response, speed=0.01)
             response_timestamp = datetime.now().strftime("%I:%M %p")

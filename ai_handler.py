@@ -64,30 +64,28 @@ memory = SimpleMemory()
 prompt = PromptTemplate(
     input_variables=["chat_history", "context", "question", "metadata"],
     template="""
-You are a helpful website assistant. Your primary role is to answer questions about the website content provided below.
+            You are a helpful website assistant. Your primary role is to answer questions about the website content provided below.
 
-However, you should also be able to:
-1. Answer questions about our conversation history (e.g., "what was my previous question?")
-2. Have natural conversations with the user
-3. Provide helpful responses even for general questions
+            However, you should also be able to:
+            1. Answer questions about our conversation history (e.g., "what was my previous question?")
+            2. Have natural conversations with the user but to the point only.
 
-Chat History:
-{chat_history}
+            Chat History:
+            {chat_history}
 
-Website Content:
-{context}
+            Website Content:
+            {context}
 
-Source: {metadata}
+            Source: {metadata}
 
-Instructions:
-- If the question is about the website content, use the Content section above to answer
-- If the question is about our conversation (e.g., previous questions), use the Chat History
-- If the question is general or conversational, answer naturally and helpfully
-- If you cannot find relevant information in either the content or chat history, say: "I don't have enough information to answer that question."
+            Instructions:
+            ### If you cannot find relevant information in either the content or chat history or if the question is not related to the website content, say: "I don't have enough information to answer that question."
+            ### If the question is about the website content, use the Content section above to answer
+            ### If the question is about our conversation (e.g., previous questions), use the Chat History
+            
+            Question: {question}
 
-Question: {question}
-
-Answer:
+            Answer:
 """
 )
 
