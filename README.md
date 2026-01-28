@@ -96,6 +96,4 @@ uv run streamlit run main.py
 - `embedding.py`: Manages vector embeddings and FAISS index.
 - `utils.py` (if applicable): Helper functions.
 
-## 📜 License
 
-This project is open-source and available under the [MIT License](LICENSE).
